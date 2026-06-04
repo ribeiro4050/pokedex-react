@@ -1,0 +1,76 @@
+.pokecard {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  border: 2px solid #e0e0e0;
+  transition: transform 0.2s;
+}
+
+.pokecard:hover {
+  transform: translateY(-5px);
+}
+
+.pokecard-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.pokecard-name {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  color: #333;
+  margin: 0;
+}
+
+.btn-favorito {
+  background: #fff;
+  border: 1px solid #ff4757;
+  color: #ff4757;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.btn-favorito:hover {
+  background: #ff4757;
+  color: #fff;
+}
+
+.btn-favorito.ativo {
+  background: #ff4757;
+  color: #fff;
+  border-color: #ff4757;
+}
+
+.pokecard-image {
+  width: 130px;
+  height: 130px;
+  background: #f1f2f6;
+  border-radius: 50%;
+  margin: 10px 0;
+}
+
+.pokecard-details p {
+  margin: 8px 0;
+  color: #57606f;
+  font-size: 0.95rem;
+}
+
+.pokecard-types {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  background: #dfe4ea;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #2f3542;
+}
