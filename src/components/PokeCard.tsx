@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./PokeCard.css";
 
-// Reutilizamos a estrutura do Pokémon para tipar as Props
 type PokemonData = {
   name: string;
   height: number;
@@ -19,17 +18,21 @@ interface PokeCardProps {
 }
 
 export default function PokeCard({ pokemon }: PokeCardProps) {
-  // Estado local para controlar se este Pokémon é favorito
-  const [isFavorito, setIsFavorito] = useState(false);
+  const [isFavorito, setIsFavorito] = useState(() => {
+    const salvo = localStorage.getItem(`fav-${pokemon.name}`);
+    return salvo === "true";
+  });
 
-  // useEffect que monitora quando o Pokémon muda para disparar a mensagem no console
   useEffect(() => {
     if (pokemon) {
-      // Deixa a primeira letra maiúscula para ficar bonito no log
       const nomeFormatado = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
       console.log(`Pokémon ${nomeFormatado} carregado com sucesso!`);
     }
-  }, [pokemon]); // Dependência: roda toda vez que um novo pokemon for carregado
+  }, [pokemon]);
+
+  useEffect(() => {
+    localStorage.setItem(`fav-${pokemon.name}`, String(isFavorito));
+  }, [isFavorito, pokemon.name]);
 
   return (
     <div className="pokecard">
@@ -41,7 +44,7 @@ export default function PokeCard({ pokemon }: PokeCardProps) {
           className={`btn-favorito ${isFavorito ? "ativo" : ""}`}
           onClick={() => setIsFavorito(!isFavorito)}
         >
-          {isFavorito ? "Remover dos Favoritos" : "Favoritar ❤️"}
+          {isFavorito ? "Remover" : "Favoritar ❤️"}
         </button>
       </div>
 

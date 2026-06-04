@@ -80,3 +80,23 @@ body {
   padding: 8px 16px;
   border-radius: 8px;
 }
+
+.pokedex-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  margin-top: 10px;
+  max-height: 60vh; /* Permite rolagem interna caso pesquise muitos Pokémons */
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Customização básica da barra de rolagem interna */
+.pokedex-grid::-webkit-scrollbar {
+  width: 6px;
+}
+.pokedex-grid::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
